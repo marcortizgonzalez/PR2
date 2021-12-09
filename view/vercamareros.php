@@ -10,14 +10,11 @@
 <body>
 
 <?php
-
 include 'ver.php';
 include '../services/conexion.php';
-
-
-echo "<h2><b>Camareros</b></h2>";
-
 ?>
+
+<h2><b>Camareros</b></h2>
 <div class="filtrado">
     <form action="vistacamareros.php" method="post">
         <input class="filtradobtn2" type="text" placeholder="Nombre" name="nombre_filtro">
@@ -26,22 +23,22 @@ echo "<h2><b>Camareros</b></h2>";
     </form>
 </div>
 
+
+
+<div class='centradotd'>
+<td><a href='../view/vistausuarioadmin.php' class='enlace1'>Back</a></td>
+</div>
+
+<div class='table-centrada'>
+<table class='table'>
+<tr>
+<th>Id</th>
+<th>Nombre</th>
+<th>Apellido</th>
+<th>Email</th>
+</tr>
+
 <?php
-
-echo "<div class='centradotd'";
-echo"<td><a href='../view/enlaces.html' class='enlace1'>Back</a></td>";
-echo "</div>";
-
-echo "<div class='table-centrada'>";
-echo "<table class='table'>";
-echo "<tr>";
-echo "<th>Id</th>";
-echo "<th>Nombre</th>";
-echo "<th>Apellido</th>";
-echo "<th>Email</th>";
-echo "</tr>";
-
-
   
 if(isset($_POST['filtrar'])){
     $nombre_filtro=$_POST['nombre_filtro'];

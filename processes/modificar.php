@@ -1,7 +1,6 @@
 <?php
 include 'config.php';
 include 'conexion.php';
-include 'alumno.php';
 /*$stmt = $pdo->prepare("UPDATE tbl_persona SET name=?, age=? WHERE id=?");
 // Bind
 $nombre = "Peter";
@@ -16,7 +15,7 @@ $email=$_REQUEST['email'];
 $nombre=$_REQUEST['nombre'];
 $apellido=$_REQUEST['apellido'];
 $edad=$_REQUEST['edad'];
-$alumno=new Alumno($email,$nombre,$apellido, $edad);
+//$alumno=new Alumno($email,$nombre,$apellido, $edad);
 $stmt = $pdo->prepare("UPDATE alumnos SET email=:email, nombre=:nombre, apellido=:apellido, edad=:edad WHERE email=:email" );
 try{
     if($stmt->execute((array) $alumno)){

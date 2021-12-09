@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="../css/historial.css">
 </head>
 <body>
-<a href="../view/vista.php"><img src="../img/cumback2.png" class="cum"></a>    
+<a href="../view/vistausuarioadmin.php"><img src="../img/cumback2.png" class="cum"></a>    
 <br>
     <div>
         <h1 class="queso">Historial</h1>

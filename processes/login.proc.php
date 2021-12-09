@@ -40,7 +40,7 @@ if (isset($_POST['email']) && isset($_POST['pass'])) {
         if (!$comprobacion=="") {
             print_r($comprobacion);
             $_SESSION['email']=$email;
-            header("location:../view/vista.php?email=$email");
+            header("location:../view/vistausuarioadmin.php");
         }else { 
             $stmt = $pdo->prepare("SELECT * FROM tbl_camareros WHERE email_camarero='$email' and contra_camarero=MD5('{$pass}')");
             $stmt->execute();
@@ -49,7 +49,7 @@ if (isset($_POST['email']) && isset($_POST['pass'])) {
                 if (!$comprobacion=="") {
                     print_r($comprobacion);
                     $_SESSION['email']=$email;
-                    header("location:../view/vistacamarero.php");
+                    header("location:../view/vista.php?email=$email");
                 }else {
                     header("location: ../view/login.html");
                     //echo '<script language="javascript">alert("Email o contraseña incorrectos");</script>';

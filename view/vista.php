@@ -69,27 +69,25 @@ if(!empty($_SESSION['email'])){
         <input class="filtradobtn" type="submit" value="Filtrar" name="filtrar">
     </form>
 </div>
+
+<div class='centradotd'>
+<td><a href='../view/historial.php' class='btnhistorial'>Historial</a></td>
+<br>
+<br>
+</div>
+
+<div class='table-centrada'>
+<table class='table'>
+<tr>
+<th>Nº Mesa</th>
+<th>Capacidad</th>
+<th>Ubicación</th>
+<th>Inicio de la reserva</th>
+<th>Reservado por </th>
+<th>Reservar/Quitar reserva</th>
+</tr>
+
 <?php
-echo "<div class='centradotd'";
-echo"<td><a href='../view/historial.php' class='btnhistorial'>Historial</a></td>";
-echo "<br>";
-echo "<br>";
-echo"<td><a href='../view/enlaces.html' class='enlace1'>Back</a></td>";
-echo "</div>";
-
-echo "<div class='table-centrada'>";
-echo "<table class='table'>";
-echo "<tr>";
-echo "<th>Nº Mesa</th>";
-echo "<th>Capacidad</th>";
-echo "<th>Ubicación</th>";
-echo "<th>Inicio de la reserva</th>";
-//echo "<th>Fin de la reserva</th>"; //comentar
-echo "<th>Reservado por </th>";
-echo "<th>Reservar/Quitar reserva</th>";
-echo "</tr>";
-
-
 //Con filtro
 if(isset($_POST['filtrar'])){
     $capacidad=$_POST['capacidad_mesa'];

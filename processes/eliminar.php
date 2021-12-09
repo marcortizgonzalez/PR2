@@ -29,5 +29,5 @@ try{
     }
 }catch(PDOException $e){
     echo 'mal';
-   echo  $e->getMessage();
+    echo  $e->getMessage();
 }

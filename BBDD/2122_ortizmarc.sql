@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-11-2021 a las 18:36:45
+-- Tiempo de generación: 09-12-2021 a las 16:50:13
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 7.4.24
 
@@ -20,15 +20,39 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `bd_taules`
 --
+/*CREATE DATABASE 2122_ortizmarc;
+USE 2122_ortizmarc;*/
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tbl_camareros`
+--
+
+CREATE TABLE `tbl_camareros` (
+  `id_camarero` int(11) NOT NULL,
+  `nombre_camarero` varchar(20) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `apellido_camarero` varchar(20) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `email_camarero` varchar(30) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `contra_camarero` varchar(32) COLLATE utf8mb4_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `tbl_camareros`
+--
+
+INSERT INTO `tbl_camareros` (`id_camarero`, `nombre_camarero`, `apellido_camarero`, `email_camarero`, `contra_camarero`) VALUES
+(1, 'Cristiano', 'Ronaldo', 'cristiano@gmail.com', 'bd4f881f9422e07ed3ee9da1284e4ef3'),
+(2, 'Raul', 'De Tomas', 'rdt@gmail.com', 'bd4f881f9422e07ed3ee9da1284e4ef3'),
+(3, 'Xavi', 'Hernandez', 'xavi@gmail.com', 'bd4f881f9422e07ed3ee9da1284e4ef3'),
+(4, 'Leo', 'Messi', 'leo@gmail.com', ''),
+(5, 'Gerard', 'Pique', 'gerard@gmail.com', 'bd4f881f9422e07ed3ee9da1284e4ef3'),
+(6, 'Camarero', 'Camarero', 'camarero@gmail.com', 'bd4f881f9422e07ed3ee9da1284e4ef3');
 
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `tbl_historial`
 --
-CREATE DATABASE bd_taules;
-USE bd_taules;
-
 
 CREATE TABLE `tbl_historial` (
   `id_historial` int(11) NOT NULL,
@@ -102,11 +126,21 @@ CREATE TABLE `tbl_usuarios` (
 INSERT INTO `tbl_usuarios` (`id_usuario`, `nombre_usuario`, `email_usuario`, `contra_usuario`, `telf_usuario`) VALUES
 (1, 'Miguel', 'miguel@gmail.com', 'bd4f881f9422e07ed3ee9da1284e4ef3', 634549817),
 (2, 'Cristian', 'cristian@gmail.com', 'bd4f881f9422e07ed3ee9da1284e4ef3', 633122211),
-(3, 'Marc', 'marc@gmail.com', 'bd4f881f9422e07ed3ee9da1284e4ef3', 635779744);
+(3, 'Marc', 'marc@gmail.com', 'bd4f881f9422e07ed3ee9da1284e4ef3', 635779744),
+(4, 'Ivan', 'ivan@gmail.com', 'bd4f881f9422e07ed3ee9da1284e4ef3', 639294509),
+(5, 'Isaac', 'isaac@gmail.com', 'bd4f881f9422e07ed3ee9da1284e4ef3', 645678904),
+(6, 'Luis', 'luis@gmail.com', 'bd4f881f9422e07ed3ee9da1284e4ef3', 634838321),
+(7, 'Sergio', 'sergio@gmail.com', 'bd4f881f9422e07ed3ee9da1284e4ef3', 657887654);
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `tbl_camareros`
+--
+ALTER TABLE `tbl_camareros`
+  ADD PRIMARY KEY (`id_camarero`);
 
 --
 -- Indices de la tabla `tbl_historial`
@@ -132,10 +166,16 @@ ALTER TABLE `tbl_usuarios`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `tbl_camareros`
+--
+ALTER TABLE `tbl_camareros`
+  MODIFY `id_camarero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT de la tabla `tbl_historial`
 --
 ALTER TABLE `tbl_historial`
-  MODIFY `id_historial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id_historial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_mesas`
@@ -147,7 +187,7 @@ ALTER TABLE `tbl_mesas`
 -- AUTO_INCREMENT de la tabla `tbl_usuarios`
 --
 ALTER TABLE `tbl_usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas

@@ -5,36 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/vista.css">
-    <title>VistaUsuarios</title>
+    <title>VistaUsuariosAdmins</title>
 </head>
 <body>
     
 <?php
 include 'ver.php';
 include '../services/conexion.php';
+?>
+
+<div class='centradotd'>
 
 
-echo "<div class='centradotd'";
-echo "</div>";
+<h2><b>Administradores</b></h2>
+<td><a href='../view/vistausuarioadmin.php' class='enlace1'>Back</a></td>
+<br>
+<br>
+<td><a type='button' class='btn btn-success'href='../processes/formulario_insertar.php'>Crear</a></td>
+</div>
 
+<div class='table-centrada'>
+<table class='table'>
+<tr>
+<th>Id</th>
+<th>Nombre</th>
+<th>Email</th>
+<th>Telf</th>
+</tr>
 
-echo "<h2><b>Administradores</b></h2>";
-echo"<td><a href='../view/enlaces.html' class='enlace1'>Back</a></td>";
-echo "<br>";
-echo "<br>";
-echo "<td><a type='button' class='btn btn-success'href='../processes/formulario_insertar.php'>Crear</a></td>";
-
-
-echo "<div class='table-centrada'>";
-echo "<table class='table'>";
-echo "<tr>";
-echo "<th>Id</th>";
-echo "<th>Nombre</th>";
-echo "<th>Email</th>";
-echo "<th>Telf</th>";
-echo "</tr>";
-
-
+<?php
 
 
 $select=$pdo->prepare("SELECT * FROM tbl_usuarios");
@@ -51,6 +50,7 @@ foreach ($listaUsuarios as $usuarios) {
 }
 
 ?>
+</div>
 
 </body>
 </html>
