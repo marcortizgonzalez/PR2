@@ -1,0 +1,30 @@
+        /*Algunos términos:
+    width - ancho
+    height - alto (altura)
+    padding - relleno
+    border - borde
+*/
+        /*El selector universal (*) selecciona todos los elementos HTML en la página.*/
+        
+        * {
+            /*https://www.w3schools.com/css/css3_box-sizing.asp
+  CSS Box Sizing
+  Por defecto, el width y el height de un elemento se calcula 
+    sumando width + padding + border = width total
+    sumando height + padding + border = height total
+  La propiedad box-sizing nos permite incluir el relleno
+  y el borde en el ancho y alto total de un elemento.
+
+  Nos será útil para el diseño en columnas de la página web.
+  */
+            box-sizing: border-box;
+            font-family: monospace;
+        }
+        /*Quitamos el margin que viene por defecto en la etiqueta body*/
+        
+        body {
+            margin: 0;
+        }
+        /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+        
+        @media screen and (max-width: 600px) {}
