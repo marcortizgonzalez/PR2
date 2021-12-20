@@ -13,10 +13,10 @@
 include 'ver.php';
 include '../services/conexion.php';
 ?>
-
+<a href='../view/vistausuarioadmin.php' class='enlace1'><img src="../img/cumback2.png" class="cum"></a>
 <h2><b>Camareros</b></h2>
 <div class="filtrado">
-    <form action="vistacamareros.php" method="post">
+    <form action="vercamareros.php" method="post">
         <input class="filtradobtn2" type="text" placeholder="Nombre" name="nombre_filtro">
         <input class="filtradobtn2" type="text" placeholder="Apellido" name="apellido_filtro">
         <input class="filtradobtn" type="submit" value="Filtrar" name="filtrar">
@@ -26,7 +26,9 @@ include '../services/conexion.php';
 
 
 <div class='centradotd'>
-<td><a href='../view/vistausuarioadmin.php' class='enlace1'>Back</a></td>
+<br>
+<br>
+<td><a type='button' class='btnhistorial'href='formulario_insertar_camarero.php'>Crear</a></td>
 </div>
 
 <div class='table-centrada'>
@@ -36,6 +38,9 @@ include '../services/conexion.php';
 <th>Nombre</th>
 <th>Apellido</th>
 <th>Email</th>
+<th>Foto</th>
+<th>Modificar</th>
+<th>Eliminar</th>
 </tr>
 
 <?php
@@ -56,6 +61,9 @@ if(isset($_POST['filtrar'])){
             echo "<td>{$filtro['nombre_camarero']}</td>";
             echo "<td>{$filtro['apellido_camarero']}</td>";  
             echo "<td>{$filtro['email_camarero']}</td>";
+            echo "<td><img style='width:200px;height:200px;' src='{$filtro['img_camarero']}'</td>";
+            echo "<td><a type='button' class='button-1' href='formulario_modificar_camarero.php?id_camarero={$filtro['id_camarero']}'>Modificar</a></td>";
+            echo "<td><a type='button' class='button-2' href='../processes/eliminar_camarero.php?id_camarero={$filtro['id_camarero']}'  onclick=\"return confirm('¿Estás seguro de borrar?')\">Borrar</a></td>";
             echo '</tr>';
         }
 
@@ -71,6 +79,9 @@ if(isset($_POST['filtrar'])){
                 echo "<td>{$filtro['nombre_camarero']}</td>";
                 echo "<td>{$filtro['apellido_camarero']}</td>";  
                 echo "<td>{$filtro['email_camarero']}</td>";
+                echo "<td><img style='width:200px;height:200px;' src='{$filtro['img_camarero']}'</td>";
+                echo "<td><a type='button' class='button-1' href='formulario_modificar_camarero.php?id_camarero={$filtro['id_camarero']}'>Modificar</a></td>";
+                echo "<td><a type='button' class='button-2' href='../processes/eliminar_camarero.php?id_camarero={$filtro['id_camarero']}'  onclick=\"return confirm('¿Estás seguro de borrar?')\">Borrar</a></td>";
                 echo '</tr>';
             }
     //Filtrar dos parametros
@@ -85,6 +96,9 @@ if(isset($_POST['filtrar'])){
             echo "<td>{$filtro['nombre_camarero']}</td>";
             echo "<td>{$filtro['apellido_camarero']}</td>";  
             echo "<td>{$filtro['email_camarero']}</td>";
+            echo "<td><img style='width:200px;height:200px;' src='{$filtro['img_camarero']}'</td>";
+            echo "<td><a type='button' class='button-1' href='formulario_modificar_camarero.php?id_camarero={$filtro['id_camarero']}'>Modificar</a></td>";
+            echo "<td><a type='button' class='button-2' href='../processes/eliminar_camarero.php?id_camarero={$filtro['id_camarero']}'  onclick=\"return confirm('¿Estás seguro de borrar?')\">Borrar</a></td>";
             echo '</tr>';
         }
 
@@ -100,6 +114,9 @@ if(isset($_POST['filtrar'])){
             echo "<td>{$filtro['nombre_camarero']}</td>";
             echo "<td>{$filtro['apellido_camarero']}</td>";  
             echo "<td>{$filtro['email_camarero']}</td>";
+            echo "<td><img style='width:200px;height:200px;' src='{$filtro['img_camarero']}'</td>";
+            echo "<td><a type='button' class='button-1' href='formulario_modificar_camarero.php?id_camarero={$filtro['id_camarero']}'>Modificar</a></td>";
+            echo "<td><a type='button' class='button-2' href='../processes/eliminar_camarero.php?id_camarero={$filtro['id_camarero']}'  onclick=\"return confirm('¿Estás seguro de borrar?')\">Borrar</a></td>";
             echo '</tr>';
         }
     }
@@ -114,6 +131,9 @@ foreach ($listaCamareros as $camarero) {
     echo "<td>{$camarero['nombre_camarero']}</td>";
     echo "<td>{$camarero['apellido_camarero']}</td>";  
     echo "<td>{$camarero['email_camarero']}</td>";
+    echo "<td><img style='width:200px;height:200px;' src='{$camarero['img_camarero']}'</td>";
+    echo "<td><a type='button' class='button-1' href='formulario_modificar_camarero.php?id_camarero={$camarero['id_camarero']}'>Modificar</a></td>";
+    echo "<td><a type='button' class='button-2' href='../processes/eliminar_camarero.php?id_camarero={$camarero['id_camarero']}'  onclick=\"return confirm('¿Estás seguro de borrar?')\">Borrar</a></td>";
     echo '</tr>';
 }
 

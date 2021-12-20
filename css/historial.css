@@ -34,7 +34,7 @@ h1 {
 }
 
 .table th {
-    background-color: rgb(29, 124, 212);
+    background-color: #2a623d;
     color: #ffffff;
 }
 
@@ -69,6 +69,46 @@ h1 {
     height: 20px;
     width: 200px;
     font-size: 13px;
+}
+
+.tooltip-wrap {
+    position: relative;
+}
+
+.tooltip-wrap .tooltip-content {
+    display: none;
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    right: 5%;
+    background-color: #43af69;
+    padding: .5em;
+}
+
+.tooltip-wrap:hover .tooltip-content {
+    display: block;
+}
+
+.button-2 {
+    text-decoration: none;
+    padding: 7px 30px 7px 30px;
+    font-weight: 550;
+    font-size: 12px;
+    color: #ffffff;
+    background-color: #c6443a;
+    border-radius: 6px;
+    border: 2px solid #581e1a;
+}
+
+.button-2:hover {
+    text-decoration: none;
+    padding: 7px 20px 7px 20px;
+    font-weight: 550;
+    font-size: 12px;
+    color: #ffffff;
+    background-color: #ff3d2f;
+    border-radius: 6px;
+    border: 2px solid #581e1a;
 }
 
 
