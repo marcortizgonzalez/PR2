@@ -158,8 +158,6 @@ if(isset($_POST['filtrar'])){
     }
 }else{
     header("Location:../index.php");
-    session_unset();
-    session_destroy();
 }
 ?>
 </body>

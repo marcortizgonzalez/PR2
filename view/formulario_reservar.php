@@ -81,8 +81,6 @@ $ubicacion_mesa=$_GET['ubicacion_mesa'];
 
 }else{
     header("Location:../index.php");
-    session_unset();
-    session_destroy();
 }
 ?>
 

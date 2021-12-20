@@ -146,8 +146,6 @@ foreach ($listaCamareros as $camarero) {
 
 }else{
     header("Location:../index.php");
-    session_unset();
-    session_destroy();
 }
 
 ?>

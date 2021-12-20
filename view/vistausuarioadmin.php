@@ -43,7 +43,7 @@ if(!empty($_SESSION['email_admin'])){
 ?>
 
 <br>
-<marquee behavior="scroll" direction="right" scrolldelay="1">Bienvenido ADMIN <?php echo $_SESSION['email']; ?></marquee>
+<marquee behavior="scroll" direction="right" scrolldelay="1">Bienvenido ADMIN <?php echo $_SESSION['email_admin']; ?></marquee>
 <br>
 <h2><b>Zona administradores</b></h2>
 
@@ -76,8 +76,6 @@ if(!empty($_SESSION['email_admin'])){
 <?php
 }else{
     header("Location:../index.php");
-    session_unset();
-    session_destroy();
 }
 ?>
 </body>

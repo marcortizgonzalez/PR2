@@ -81,8 +81,6 @@ if(!empty($_SESSION['email_admin'])){
 <?php
 }else{
     header("Location:../index.php");
-    session_unset();
-    session_destroy();
 }
 ?>
 </html>
