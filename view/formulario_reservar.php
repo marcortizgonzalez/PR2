@@ -14,7 +14,7 @@
 
 
 session_start();
-if(!empty($_SESSION['email_admin'])){
+if(!empty($_SESSION['email_camarero'])){
 
 
 $id_mesa=$_REQUEST['id_mesa'];
