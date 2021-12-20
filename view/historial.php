@@ -99,7 +99,7 @@ if(isset($_POST['filtrar'])){
         echo "<td>{$filtro['ubicacion_mesa']}</td>";  
         echo "<td>{$filtro['fecha_reserva']}</td>";
         echo "<td>{$filtro['id_horario']}</td>";
-        echo "<td><a type='button' class='button-2' href='../processes/eliminar_reserva.php?id_historial={$filtro['id_historial']}'  onclick=\"return confirm('¿Estás seguro de borrar?')\">Borrar</a></td>";
+        echo "<td><a type='button' class='button-2' href='../processes/eliminar_reserva_camarero.php?id_historial={$filtro['id_historial']}'  onclick=\"return confirm('¿Estás seguro de borrar?')\">Borrar</a></td>";
         echo '</tr>';
     }
     //Filtrar solo por capacidad    
@@ -118,7 +118,7 @@ if(isset($_POST['filtrar'])){
             echo "<td>{$filtro['ubicacion_mesa']}</td>";  
             echo "<td>{$filtro['fecha_reserva']}</td>";
             echo "<td>{$filtro['id_horario']}</td>";
-            echo "<td><a type='button' class='button-2' href='../processes/eliminar_reserva.php?id_historial={$filtro['id_historial']}'  onclick=\"return confirm('¿Estás seguro de borrar?')\">Borrar</a></td>";
+            echo "<td><a type='button' class='button-2' href='../processes/eliminar_reserva_camarero.php?id_historial={$filtro['id_historial']}'  onclick=\"return confirm('¿Estás seguro de borrar?')\">Borrar</a></td>";
             echo '</tr>';
         }
     //Filtrar solo por fecha
@@ -137,7 +137,7 @@ if(isset($_POST['filtrar'])){
             echo "<td>{$filtro['ubicacion_mesa']}</td>";  
             echo "<td>{$filtro['fecha_reserva']}</td>";
             echo "<td>{$filtro['id_horario']}</td>";
-            echo "<td><a type='button' class='button-2' href='../processes/eliminar_reserva.php?id_historial={$filtro['id_historial']}'  onclick=\"return confirm('¿Estás seguro de borrar?')\">Borrar</a></td>";
+            echo "<td><a type='button' class='button-2' href='../processes/eliminar_reserva_camarero.php?id_historial={$filtro['id_historial']}'  onclick=\"return confirm('¿Estás seguro de borrar?')\">Borrar</a></td>";
             echo '</tr>';
         }
     //Filtrar teniendo capacidad y ubi
@@ -155,7 +155,7 @@ if(isset($_POST['filtrar'])){
             echo "<td>{$filtro['ubicacion_mesa']}</td>";  
             echo "<td>{$filtro['fecha_reserva']}</td>";
             echo "<td>{$filtro['id_horario']}</td>";
-            echo "<td><a type='button' class='button-2' href='../processes/eliminar_reserva.php?id_historial={$filtro['id_historial']}'  onclick=\"return confirm('¿Estás seguro de borrar?')\">Borrar</a></td>";
+            echo "<td><a type='button' class='button-2' href='../processes/eliminar_reserva_camarero.php?id_historial={$filtro['id_historial']}'  onclick=\"return confirm('¿Estás seguro de borrar?')\">Borrar</a></td>";
             echo '</tr>';
         }
     //Filtrar teniendo capacidad y fecha
@@ -173,7 +173,7 @@ if(isset($_POST['filtrar'])){
             echo "<td>{$filtro['ubicacion_mesa']}</td>";  
             echo "<td>{$filtro['fecha_reserva']}</td>";
             echo "<td>{$filtro['id_horario']}</td>";
-            echo "<td><a type='button' class='button-2' href='../processes/eliminar_reserva.php?id_historial={$filtro['id_historial']}'  onclick=\"return confirm('¿Estás seguro de borrar?')\">Borrar</a></td>";
+            echo "<td><a type='button' class='button-2' href='../processes/eliminar_reserva_camarero.php?id_historial={$filtro['id_historial']}'  onclick=\"return confirm('¿Estás seguro de borrar?')\">Borrar</a></td>";
             echo '</tr>';
         }
     //Filtrar teniendo ubi y fecha
@@ -191,7 +191,7 @@ if(isset($_POST['filtrar'])){
             echo "<td>{$filtro['ubicacion_mesa']}</td>";  
             echo "<td>{$filtro['fecha_reserva']}</td>";
             echo "<td>{$filtro['id_horario']}</td>";
-            echo "<td><a type='button' class='button-2' href='../processes/eliminar_reserva.php?id_historial={$filtro['id_historial']}'  onclick=\"return confirm('¿Estás seguro de borrar?')\">Borrar</a></td>";
+            echo "<td><a type='button' class='button-2' href='../processes/eliminar_reserva_camarero.php?id_historial={$filtro['id_historial']}'  onclick=\"return confirm('¿Estás seguro de borrar?')\">Borrar</a></td>";
             echo '</tr>';
         }
     //Filtrar teniendo los 3 parametros
@@ -209,7 +209,7 @@ if(isset($_POST['filtrar'])){
             echo "<td>{$filtro['ubicacion_mesa']}</td>";  
             echo "<td>{$filtro['fecha_reserva']}</td>";
             echo "<td>{$filtro['id_horario']}</td>";
-            echo "<td><a type='button' class='button-2' href='../processes/eliminar_reserva.php?id_historial={$filtro['id_historial']}'  onclick=\"return confirm('¿Estás seguro de borrar?')\">Borrar</a></td>";
+            echo "<td><a type='button' class='button-2' href='../processes/eliminar_reserva_camarero.php?id_historial={$filtro['id_historial']}'  onclick=\"return confirm('¿Estás seguro de borrar?')\">Borrar</a></td>";
             echo '</tr>';
         }
     }
@@ -228,7 +228,7 @@ if(isset($_POST['filtrar'])){
             echo "<td>{$filtro['ubicacion_mesa']}</td>";  
             echo "<td>{$filtro['fecha_reserva']}</td>";
             echo "<td>{$filtro['id_horario']}</td>";
-            echo "<td><a type='button' class='button-2' href='../processes/eliminar_reserva.php?id_historial={$filtro['id_historial']}'  onclick=\"return confirm('¿Estás seguro de borrar?')\">Borrar</a></td>";
+            echo "<td><a type='button' class='button-2' href='../processes/eliminar_reserva_camarero.php?id_historial={$filtro['id_historial']}'  onclick=\"return confirm('¿Estás seguro de borrar?')\">Borrar</a></td>";
             echo '</tr>';
         }
     }
