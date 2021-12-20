@@ -12,6 +12,9 @@
 
 <?php
 
+session_start();
+if(!empty($_SESSION['email_admin'])){
+
 
 $id_mesa=$_REQUEST['id_mesa'];
 $capacidad_mesa=$_REQUEST['capacidad_mesa'];
@@ -103,3 +106,11 @@ $resultado = $comparar -> fetchAll(PDO::FETCH_ASSOC);
 
 </center>
 </body>
+
+<?php
+}else{
+    header("Location:../index.php");
+    session_unset();
+    session_destroy();
+}
+?>

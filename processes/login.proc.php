@@ -16,7 +16,7 @@ if (isset($_POST['email']) && isset($_POST['pass'])) {
     try {
         if (!$comprobacion=="") {
             print_r($comprobacion);
-            $_SESSION['email']=$email;
+            $_SESSION['email_admin']=$email;
             header("location:../view/vistausuarioadmin.php");
         }else { 
             $stmt = $pdo->prepare("SELECT * FROM tbl_camareros WHERE email_camarero='$email' and contra_camarero=MD5('{$pass}')");
@@ -25,7 +25,7 @@ if (isset($_POST['email']) && isset($_POST['pass'])) {
             try {
                 if (!$comprobacion=="") {
                     print_r($comprobacion);
-                    $_SESSION['email']=$email;
+                    $_SESSION['email_camarero']=$email;
                     header("location:../view/vista.php?email=$email");
                 }else {
                     header("location: ../view/login.html");

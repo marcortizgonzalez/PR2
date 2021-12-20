@@ -19,8 +19,7 @@ include 'ver.php';
 include '../services/conexion.php';
 
 session_start();
-
-if(!empty($_SESSION['email'])){
+if(!empty($_SESSION['email_camarero'])){
 
 ?>
 <br>
@@ -236,6 +235,8 @@ if(isset($_POST['filtrar'])){
 
 }else{
     header("Location:../index.php");
+    session_unset();
+    session_destroy();
 }
 ?>
 </div>

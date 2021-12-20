@@ -14,6 +14,9 @@
     include 'ver.php';
     include '../services/conexion.php';
 
+    session_start();
+    if(!empty($_SESSION['email_admin'])){
+
     $ubicacion=$pdo->prepare("SELECT DISTINCT ubicacion_mesa FROM tbl_mesas");
     $ubicacion->execute();
     $listaUbicacion=$ubicacion->fetchAll(PDO::FETCH_ASSOC);
@@ -55,3 +58,11 @@
     </form>
     </center>
 </body>
+<?php
+}else{
+    header("Location:../index.php");
+    session_unset();
+    session_destroy();
+}
+?>
+</html>

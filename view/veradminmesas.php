@@ -18,9 +18,7 @@ include 'ver.php';
 include '../services/conexion.php';
 
 session_start();
-
-
-if(!empty($_SESSION['email'])){
+if(!empty($_SESSION['email_admin'])){
 
 ?>
 <a href='../view/vistausuarioadmin.php' class='enlace1'><img src="../img/cumback2.png" class="cum"></a>
@@ -141,6 +139,8 @@ if(isset($_POST['filtrar'])){
     }
 }else{
     header("Location:../index.php");
+    session_unset();
+    session_destroy();
 }
 ?>
 </body>

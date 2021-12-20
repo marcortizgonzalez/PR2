@@ -9,6 +9,11 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 
+<?php
+session_start();
+if(!empty($_SESSION['email_admin'])){
+?>
+
 <body>
 <br>
 <center>
@@ -73,4 +78,11 @@
     <?php } ?>
 </center>
 </body>
+<?php
+}else{
+    header("Location:../index.php");
+    session_unset();
+    session_destroy();
+}
+?>
 </html>

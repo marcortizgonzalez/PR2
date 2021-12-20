@@ -15,7 +15,10 @@
     <a class='btnlogout' href="../processes/logout.php">Log Out</a>
 </div>
 
-
+<?php
+session_start();
+if(!empty($_SESSION['email_camarero'])){
+?>
 
 <a href="" id="open-modal">Soporte</a>
     <div class="left-part"></div>
@@ -38,15 +41,11 @@ include 'ver.php';
 include '../services/conexion.php';
 
 
-session_start();
-
-
-if(!empty($_SESSION['email'])){
 
     
 ?>
 <br>
-<marquee behavior="scroll" direction="right" scrolldelay="1">Bienvenido <?php echo $_SESSION['email']; ?></marquee>
+<marquee behavior="scroll" direction="right" scrolldelay="1">Bienvenido <?php echo $_SESSION['email_camarero']; ?></marquee>
 <br>
 <h2><b>Reserva de mesas</b></h2>
 
@@ -106,7 +105,7 @@ if(isset($_POST['filtrar'])){
         echo "<td><b>{$filtro['id_mesa']}</b></td>";
         echo "<td>{$filtro['capacidad_mesa']} sillas</td>";
         echo "<td>{$filtro['ubicacion_mesa']}</td>";  
-        echo"<td><a href='formulario_reservar.php?id_mesa={$filtro['id_mesa']}&email_usuario={$_SESSION['email']}&capacidad_mesa={$filtro['capacidad_mesa']}&ubicacion_mesa={$filtro['ubicacion_mesa']}' class='btnreservar'>Reservar</a></td>";
+        echo"<td><a href='formulario_reservar.php?id_mesa={$filtro['id_mesa']}&email_usuario={$_SESSION['email_camarero']}&capacidad_mesa={$filtro['capacidad_mesa']}&ubicacion_mesa={$filtro['ubicacion_mesa']}' class='btnreservar'>Reservar</a></td>";
         echo '</tr>';
     }
     //Filtrar solo por capacidad    
@@ -122,7 +121,7 @@ if(isset($_POST['filtrar'])){
                 echo "<td><b>{$filtro['id_mesa']}</b></td>";
                 echo "<td>{$filtro['capacidad_mesa']} sillas</td>";
                 echo "<td>{$filtro['ubicacion_mesa']}</td>";  
-                echo"<td><a href='formulario_reservar.php?id_mesa={$filtro['id_mesa']}&email_usuario={$_SESSION['email']}&capacidad_mesa={$filtro['capacidad_mesa']}&ubicacion_mesa={$filtro['ubicacion_mesa']}' class='btnreservar'>Reservar</a></td>";
+                echo"<td><a href='formulario_reservar.php?id_mesa={$filtro['id_mesa']}&email_usuario={$_SESSION['email_camarero']}&capacidad_mesa={$filtro['capacidad_mesa']}&ubicacion_mesa={$filtro['ubicacion_mesa']}' class='btnreservar'>Reservar</a></td>";
                 echo '</tr>';
             }
     //Filtrar teniendo los 2 parametros
@@ -137,7 +136,7 @@ if(isset($_POST['filtrar'])){
             echo "<td><b>{$filtro['id_mesa']}</b></td>";
             echo "<td>{$filtro['capacidad_mesa']} sillas</td>";
             echo "<td>{$filtro['ubicacion_mesa']}</td>";  
-            echo"<td><a href='formulario_reservar.php?id_mesa={$filtro['id_mesa']}&email_usuario={$_SESSION['email']}&capacidad_mesa={$filtro['capacidad_mesa']}&ubicacion_mesa={$filtro['ubicacion_mesa']}' class='btnreservar'>Reservar</a></td>";
+            echo"<td><a href='formulario_reservar.php?id_mesa={$filtro['id_mesa']}&email_usuario={$_SESSION['email_camarero']}&capacidad_mesa={$filtro['capacidad_mesa']}&ubicacion_mesa={$filtro['ubicacion_mesa']}' class='btnreservar'>Reservar</a></td>";
             echo '</tr>';
         }
     }
@@ -153,12 +152,14 @@ if(isset($_POST['filtrar'])){
             echo "<td><b>{$filtro['id_mesa']}</b></td>";
             echo "<td>{$filtro['capacidad_mesa']} sillas</td>";
             echo "<td>{$filtro['ubicacion_mesa']}</td>";  
-            echo"<td><a href='formulario_reservar.php?id_mesa={$filtro['id_mesa']}&email_usuario={$_SESSION['email']}&capacidad_mesa={$filtro['capacidad_mesa']}&ubicacion_mesa={$filtro['ubicacion_mesa']}' class='btnreservar'>Reservar</a></td>";
+            echo"<td><a href='formulario_reservar.php?id_mesa={$filtro['id_mesa']}&email_usuario={$_SESSION['email_camarero']}&capacidad_mesa={$filtro['capacidad_mesa']}&ubicacion_mesa={$filtro['ubicacion_mesa']}' class='btnreservar'>Reservar</a></td>";
             echo '</tr>';
         }
     }
 }else{
     header("Location:../index.php");
+    session_unset();
+    session_destroy();
 }
 ?>
 </body>

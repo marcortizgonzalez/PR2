@@ -14,9 +14,7 @@
 
 
 session_start();
-
-
-if(!empty($_SESSION['email'])){
+if(!empty($_SESSION['email_admin'])){
 
 
 $id_mesa=$_REQUEST['id_mesa'];
@@ -83,8 +81,11 @@ $ubicacion_mesa=$_GET['ubicacion_mesa'];
 
 }else{
     header("Location:../index.php");
+    session_unset();
+    session_destroy();
 }
 ?>
 
 </center>
 </body>
+</html>

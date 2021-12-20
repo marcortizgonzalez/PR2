@@ -38,9 +38,7 @@ include 'ver.php';
 include '../services/conexion.php';
 
 session_start();
-
-
-if(!empty($_SESSION['email'])){
+if(!empty($_SESSION['email_admin'])){
 
 ?>
 
@@ -78,6 +76,8 @@ if(!empty($_SESSION['email'])){
 <?php
 }else{
     header("Location:../index.php");
+    session_unset();
+    session_destroy();
 }
 ?>
 </body>

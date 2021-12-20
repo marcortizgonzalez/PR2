@@ -10,6 +10,11 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 
+<?php
+session_start();
+if(!empty($_SESSION['email_admin'])){
+?>
+
 <body>
 <a href="../view/vercamareros.php"><img src="../img/cumback2.png" class="cum"></a>    
 <br>
@@ -62,3 +67,11 @@
     </form>
 </center>
 </body>
+<?php
+}else{
+    header("Location:../index.php");
+    session_unset();
+    session_destroy();
+}
+?>
+</html>

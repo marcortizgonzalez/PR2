@@ -15,9 +15,7 @@ include '../services/conexion.php';
 
 
 session_start();
-
-
-if(!empty($_SESSION['email'])){
+if(!empty($_SESSION['email_admin'])){
 
 ?>
 <a href='../view/vistausuarioadmin.php' class='enlace1'><img src="../img/cumback2.png" class="cum"></a>
@@ -58,7 +56,7 @@ foreach ($listaUsuarios as $usuarios) {
     echo "<td>{$usuarios['email_usuario']}</td>";
     echo "<td>{$usuarios['telf_usuario']}</td>";
     echo "<td><img style='width:200px;height:200px;' src='{$usuarios['img_usuario']}'</td>";
-    if($_SESSION['email']==$usuarios['email_usuario']){
+    if($_SESSION['email_admin']==$usuarios['email_usuario']){
         echo "<td><a></a></td>";
         echo "<td><a></a></td>";
     } else{
@@ -71,6 +69,8 @@ foreach ($listaUsuarios as $usuarios) {
 
 }else{
     header("Location:../index.php");
+    session_unset();
+    session_destroy();
 }
 ?>
 
