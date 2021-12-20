@@ -8,28 +8,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../js/modalbox.js"></script>
     <script src="../js/vista.js"></script>
-    <title>Vista Proyecto RICK-DECKARD21</title>
 </head>
 <body>
-<div class='paddingtop'>
-    <a class='btnlogout' href="../processes/logout.php">Log Out</a>
-</div>
-
-
-
-<a href="" id="open-modal">Soporte</a>
-    <div class="left-part"></div>
-    <div class="right-part"></div>
-    <div class="modal">
-        <div class="content">
-            <h1>Teléfono de soporte 24/7</h1>
-            <p><b>Telf. +34 902 24 25 26 - 806 34 12 77</b></p>
-        </div>
-    </div>
-    <div class="bckg-close"></div>
-
-
-
 
 <?php
 
@@ -37,18 +17,14 @@
 include 'ver.php';
 include '../services/conexion.php';
 
-
 session_start();
 
 
 if(!empty($_SESSION['email'])){
 
-    
 ?>
-<br>
-<marquee behavior="scroll" direction="right" scrolldelay="1">Bienvenido <?php echo $_SESSION['email']; ?></marquee>
-<br>
-<h2><b>Reserva de mesas</b></h2>
+<a href='../view/vistausuarioadmin.php' class='enlace1'><img src="../img/cumback2.png" class="cum"></a>
+<h2><b>Administración de mesas</b></h2>
 
 <?php
     $ubicacion=$pdo->prepare("SELECT DISTINCT ubicacion_mesa FROM tbl_mesas");
@@ -56,9 +32,15 @@ if(!empty($_SESSION['email'])){
     $listaUbicacion=$ubicacion->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
+<div class='centradotd'>
+
+<br>
+<br>
+<td><a type='button' class='btnhistorial'href='formulario_insertar_mesa.php'>Crear</a></td>
+</div>
 
 <div class="filtrado">
-    <form action="vista.php" method="post">
+    <form action="veradminmesas.php" method="post">
         <input class="filtradobtn2" type="text" placeholder="Capacidad mesa" name="capacidad_mesa">
         <?php
         echo "<select name='ubicacion_mesa'>";
@@ -72,11 +54,6 @@ if(!empty($_SESSION['email'])){
     </form>
 </div>
 
-<div class='centradotd'>
-<td><a href='../view/historial.php' class='btnhistorial'>Historial</a></td>
-<br>
-<br>
-</div>
 
 <div class='table-centrada'>
 <table class='table'>
@@ -84,7 +61,8 @@ if(!empty($_SESSION['email'])){
 <th>Nº Mesa</th>
 <th>Capacidad</th>
 <th>Ubicación</th>
-<th>Reservar/Quitar reserva</th>
+<th>Modificar</th>
+<th>Eliminar</th>
 </tr>
 
 <?php
@@ -105,8 +83,9 @@ if(isset($_POST['filtrar'])){
         echo "<tr>";
         echo "<td><b>{$filtro['id_mesa']}</b></td>";
         echo "<td>{$filtro['capacidad_mesa']} sillas</td>";
-        echo "<td>{$filtro['ubicacion_mesa']}</td>";  
-        echo"<td><a href='formulario_reservar.php?id_mesa={$filtro['id_mesa']}&email_usuario={$_SESSION['email']}&capacidad_mesa={$filtro['capacidad_mesa']}&ubicacion_mesa={$filtro['ubicacion_mesa']}' class='btnreservar'>Reservar</a></td>";
+        echo "<td>{$filtro['ubicacion_mesa']}</td>";
+        echo "<td><a type='button' class='button-1' href='formulario_modificar_mesa.php?id_mesa={$filtro['id_mesa']}'>Modificar</a></td>";
+        echo "<td><a type='button' class='button-2' href='../processes/eliminar_mesa.php?id_mesa={$filtro['id_mesa']}'  onclick=\"return confirm('¿Estás seguro de borrar?')\">Borrar</a></td>";
         echo '</tr>';
     }
     //Filtrar solo por capacidad    
@@ -121,8 +100,9 @@ if(isset($_POST['filtrar'])){
                 echo "<tr>";
                 echo "<td><b>{$filtro['id_mesa']}</b></td>";
                 echo "<td>{$filtro['capacidad_mesa']} sillas</td>";
-                echo "<td>{$filtro['ubicacion_mesa']}</td>";  
-                echo"<td><a href='formulario_reservar.php?id_mesa={$filtro['id_mesa']}&email_usuario={$_SESSION['email']}&capacidad_mesa={$filtro['capacidad_mesa']}&ubicacion_mesa={$filtro['ubicacion_mesa']}' class='btnreservar'>Reservar</a></td>";
+                echo "<td>{$filtro['ubicacion_mesa']}</td>";
+                echo "<td><a type='button' class='button-1' href='formulario_modificar_mesa.php?id_mesa={$filtro['id_mesa']}'>Modificar</a></td>";
+                echo "<td><a type='button' class='button-2' href='../processes/eliminar_mesa.php?id_mesa={$filtro['id_mesa']}'  onclick=\"return confirm('¿Estás seguro de borrar?')\">Borrar</a></td>";
                 echo '</tr>';
             }
     //Filtrar teniendo los 2 parametros
@@ -136,8 +116,9 @@ if(isset($_POST['filtrar'])){
             echo "<tr>";
             echo "<td><b>{$filtro['id_mesa']}</b></td>";
             echo "<td>{$filtro['capacidad_mesa']} sillas</td>";
-            echo "<td>{$filtro['ubicacion_mesa']}</td>";  
-            echo"<td><a href='formulario_reservar.php?id_mesa={$filtro['id_mesa']}&email_usuario={$_SESSION['email']}&capacidad_mesa={$filtro['capacidad_mesa']}&ubicacion_mesa={$filtro['ubicacion_mesa']}' class='btnreservar'>Reservar</a></td>";
+            echo "<td>{$filtro['ubicacion_mesa']}</td>";
+            echo "<td><a type='button' class='button-1' href='formulario_modificar_mesa.php?id_mesa={$filtro['id_mesa']}'>Modificar</a></td>";
+            echo "<td><a type='button' class='button-2' href='../processes/eliminar_mesa.php?id_mesa={$filtro['id_mesa']}'  onclick=\"return confirm('¿Estás seguro de borrar?')\">Borrar</a></td>";
             echo '</tr>';
         }
     }
@@ -152,8 +133,9 @@ if(isset($_POST['filtrar'])){
             echo "<tr>";
             echo "<td><b>{$filtro['id_mesa']}</b></td>";
             echo "<td>{$filtro['capacidad_mesa']} sillas</td>";
-            echo "<td>{$filtro['ubicacion_mesa']}</td>";  
-            echo"<td><a href='formulario_reservar.php?id_mesa={$filtro['id_mesa']}&email_usuario={$_SESSION['email']}&capacidad_mesa={$filtro['capacidad_mesa']}&ubicacion_mesa={$filtro['ubicacion_mesa']}' class='btnreservar'>Reservar</a></td>";
+            echo "<td>{$filtro['ubicacion_mesa']}</td>";
+            echo "<td><a type='button' class='button-1' href='formulario_modificar_mesa.php?id_mesa={$filtro['id_mesa']}'>Modificar</a></td>";
+            echo "<td><a type='button' class='button-2' href='../processes/eliminar_mesa.php?id_mesa={$filtro['id_mesa']}'  onclick=\"return confirm('¿Estás seguro de borrar?')\">Borrar</a></td>";
             echo '</tr>';
         }
     }

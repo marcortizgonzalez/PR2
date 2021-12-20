@@ -62,7 +62,7 @@ input[type="password"] {
     border: none;
     outline: none;
     height: 40px;
-    background: #2b5d85;
+    background: #2a623d;
     color: white;
     font-size: 18px;
     border-radius: 20px;
@@ -70,8 +70,8 @@ input[type="password"] {
 
 .loginbox input[type="submit"]:hover {
     cursor: pointer;
-    background: #338fd8;
-    color: #000;
+    background: #1a472a;
+    color: rgb(255, 255, 255);
 }
 
 .caja_roja input[type="text"] {
